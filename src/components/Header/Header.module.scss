@@ -1,0 +1,39 @@
+.topNav{
+    padding: 30px 0;
+}
+.topNavLink{
+    text-decoration: none;
+    color: #1f7fb0;
+    font-size: 16px;
+    transition: 0.25s ease all;
+}
+.topNavLink:hover {
+    opacity: 0.6;
+}
+.topNavLinks{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-right: 30px;
+}
+
+.topNavLogin{
+    margin-right: 30px;
+}
+.topNavButton{
+    // padding-top: 14px;
+    // padding-bottom: 14px;
+}
+.logo{
+    margin-right: 30px;
+}
+@media (max-width: 768px){
+    .topNav{
+        flex-direction: column;
+    }
+}
+@media (max-width: 596px){
+    .topNavLeft{
+        flex-direction: column;
+    }
+}

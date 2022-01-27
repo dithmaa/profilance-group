@@ -1,0 +1,23 @@
+.newsPost{
+    background-color: #fff7f7;
+    padding: 20px;
+    margin: 20px 0;
+    max-width: 45%;
+    width: 100%;
+    .newsPostTitle{
+        font-size: 20px;
+        margin: 10px 0;
+    }
+    .newsPostText{
+        margin: 10px 0;
+    }
+    .newsPostDate {
+        font-size: 12px;
+        color: rgb(80, 80, 80);
+    }
+}
+@media (max-width: 992px){
+    .newsPost {
+        max-width: 100%;
+    }
+}

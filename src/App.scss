@@ -1,0 +1,63 @@
+//grid
+.container{
+  max-width: 1170px;
+  width: 90%;
+  margin: 0 auto;
+}
+body{
+  position: relative;
+}
+//flexbox
+.flex{
+  display: flex;
+}
+.jcc{
+  justify-content: center;
+}
+.aic{
+  align-items: center;
+}
+.jcsb{
+  justify-content: space-between;
+}
+.fxdc{
+  flex-direction: column;
+}
+
+// elements
+
+.mainInput, .mainButton{
+  padding: 20px;
+  border-radius: 10px;
+  border: none;
+  background-color: rgb(241, 241, 241);
+  margin: 10px 0;
+  outline: none;
+  border: 1px solid transparent;
+}
+.mainButton{
+  cursor: pointer;
+  transition: .25s ease all;
+  background-color: rgb(74, 126, 185);
+  color: #fff;
+  padding: 14px 20px;
+
+}
+.mainInput:focus::placeholder{
+  color: transparent;
+}
+.mainButton:hover{
+  opacity: 0.6;
+}
+.mainInput.inputError{
+  border: 1px solid #ffadad;
+}
+.topNavButton{
+  opacity: 0.4;
+}
+.logo{
+  transition: 0.25s ease all;
+}
+.logo:hover {
+  opacity: 0.6;
+}

@@ -1,0 +1,45 @@
+.popup{
+    position: absolute;
+    z-index: 100;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+}
+.overflow{
+    background-color: rgba(0, 0, 0, 0.493);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99;
+}
+.popupForm{
+    background-color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+.popupClose{
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 20px;
+    cursor: pointer;
+    border: none;
+    background-color: transparent;
+    transition: .25s ease all;
+    font-size: 24px;
+}
+.popupClose:hover{
+    opacity: 0.6;
+}
+
+.popupButton{
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
