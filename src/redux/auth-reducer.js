@@ -40,23 +40,20 @@ const authReducer = (state = initialState, action) => {
             let passwordCheck = null;
 
             state.users.map( (item) => item.login).includes(action.payload.login)
-            ? loginCheck = true
-            : loginCheck = false
+                ? loginCheck = true
+                : loginCheck = false
 
             // Проверка пароля
             state.users.map( (item) => item.password).includes(action.payload.password)
-            ? passwordCheck = true 
-            : passwordCheck = false
+                ? passwordCheck = true 
+                : passwordCheck = false
 
 
             if(loginCheck && passwordCheck){ // проверка на авторизацию
                 // console.log("Авторизация произошла успешно");
                 localStorage.setItem('authData', JSON.stringify(action.payload));
                 localStorage.setItem('isAuth', JSON.stringify({isAuth: true}));
-
-
                 
-
                 return{
                     ...state, 
                     isAuth: true,

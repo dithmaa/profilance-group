@@ -9,8 +9,8 @@ const NewsPosts = (props) => {
                 {
                 props.postDate.length !== 0
                 ?
-                props.postDate[0] + ' ' + props.month + ' в ' +
-                    props.postDate[2] + ":" + props.postDate[3]
+                props.day + ' ' + props.month + ' в ' +
+                    props.minutes + ":" + props.seconds
                 : null 
                 }
             </span>

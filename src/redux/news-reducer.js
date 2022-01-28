@@ -1,12 +1,8 @@
-let newsPosts;
+let newsPostsArr;
 
-JSON.parse(localStorage.getItem('newsPosts')) 
-? console.log(JSON.parse(localStorage.getItem('newsPosts')).title)
-: console.log('')
-
-
-let initialState = {
-    newsPosts: [
+JSON.parse(localStorage.getItem('newsPosts'))  // если есть в Local Storage, Возьми оттуда
+    ? newsPostsArr = JSON.parse(localStorage.getItem('newsPosts')) // Если нет, то вот по дефолту
+    : newsPostsArr = [
         {
             id: 1,
             title: 'Пост 1. Что такое React?',
@@ -26,6 +22,13 @@ let initialState = {
             postDate: [27, 0, 15, 30]
         }
     ]
+
+
+
+let initialState = {
+    newsPosts: newsPostsArr, // типо та, над которой издеваются во время поиска
+    original: newsPostsArr, // типо резервная
+    searchValue: 'React'
 };
 
 const newsReducer = (state = initialState, action) => {
@@ -40,16 +43,39 @@ const newsReducer = (state = initialState, action) => {
             let postDateNow = [dateDay, dateMonth, dateHours, dateMinutes];
             // создание поста
             let postElement = {
-                id: 4,
+                id: state.newsPosts.length + 1,
                 title: action.payload.title,
                 text: action.payload.text,
                 postDate: postDateNow
             }
             console.log(postElement);
-            localStorage.setItem('newsPosts', JSON.stringify(postElement));
+
+            
+
+            let temp = [...state.newsPosts, postElement];
+
+            localStorage.setItem('newsPosts', JSON.stringify(temp));
+
             return{
                 ...state, 
-                newsPosts: [...state.newsPosts, postElement]
+                newsPosts: temp
+            }
+        }
+        case HANDLE_SEARCH_VALUE:{
+            return{
+                ...state, 
+                searchValue: action.newSearchValue
+            }
+        }
+        case SEARCH_NEWS:{
+            
+
+            let newsPostsSearched = state.original
+            .filter(post => post.title.toLowerCase().includes(action.searchNewsBody.toLowerCase()))
+
+            return{
+                ...state,
+                newsPosts: newsPostsSearched
             }
         }
         default:
@@ -59,8 +85,13 @@ const newsReducer = (state = initialState, action) => {
 }
 
 const ADD_NEWS_POST = "ADD_NEWS_POST";
+const HANDLE_SEARCH_VALUE = "HANDLE_SEARCH_VALUE";
+const SEARCH_NEWS = "SEARCH_NEWS";
 
 
-export let addNewsPost = (postTitle, postText) => ({type: ADD_NEWS_POST, payload:{title: postTitle, text: postText}});
+export let addNewsPost = (postTitle, postText) => ({type: ADD_NEWS_POST, 
+    payload:{title: postTitle, text: postText}});
+export let handleSearchValue = (newSearchValue) => ({type: HANDLE_SEARCH_VALUE, newSearchValue}); 
+export let searchNews = (searchNewsBody) => ({type: SEARCH_NEWS, searchNewsBody}); 
 
 export default newsReducer;

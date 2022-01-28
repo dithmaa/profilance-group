@@ -26,7 +26,7 @@ body{
 
 // elements
 
-.mainInput, .mainButton{
+.mainInput, .mainButton, .mainTextarea{
   padding: 20px;
   border-radius: 10px;
   border: none;
@@ -60,4 +60,9 @@ body{
 }
 .logo:hover {
   opacity: 0.6;
+}
+.mainTextarea{
+  &.textareaError {
+    border: 1px solid #ffadad;
+  }
 }
