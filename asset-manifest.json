@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/profilance-group/static/css/main.7e471c7c.css",
+    "main.js": "/profilance-group/static/js/main.e60766d9.js",
+    "static/js/787.4e7ef02d.chunk.js": "/profilance-group/static/js/787.4e7ef02d.chunk.js",
+    "static/media/logo.svg": "/profilance-group/static/media/logo.30c2329ae7bda22d4695085750d37502.svg",
+    "index.html": "/profilance-group/index.html",
+    "main.7e471c7c.css.map": "/profilance-group/static/css/main.7e471c7c.css.map",
+    "main.e60766d9.js.map": "/profilance-group/static/js/main.e60766d9.js.map",
+    "787.4e7ef02d.chunk.js.map": "/profilance-group/static/js/787.4e7ef02d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7e471c7c.css",
+    "static/js/main.e60766d9.js"
+  ]
+}
