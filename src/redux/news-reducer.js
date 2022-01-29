@@ -86,7 +86,7 @@ const newsReducer = (state = initialState, action) => {
 
             
 
-            let temp = [...state.newsPosts, postElement];
+            let temp = [postElement, ...state.newsPosts];
 
             localStorage.setItem('newsPosts', JSON.stringify(temp));
 

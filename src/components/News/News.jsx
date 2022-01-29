@@ -44,9 +44,12 @@ class News extends React.Component {
                             (values) => {
                                 // console.log(values);
                                 this.props.addNewsPost(values.postTitle, values.postText);
+                                
                                 if(this.props.isAdminProfile){
-                                    this.agreePost(this.props.newsPost.length - 1)
+                                    // this.agreePost(this.props.newsPost.length - 1) // убрал тк теперь добавляется в начало массива
+                                    this.agreePost(0)
                                 }
+
                                 this.setState((state)=>{
                                     return{
                                         showSuccessAdd: true
@@ -97,12 +100,9 @@ class News extends React.Component {
                                     >Добавить</button>
                                 </div>
                                 {
-                                    this.props.isAdminProfile
-                                        ? 
-                                        this.state.showSuccessAdd
-                                            ? <div className={css.newsAlert}><p>Пост опубликован</p></div>
-                                                : null
-                                            : this.state.showSuccessAdd
+                                    !this.props.isAdminProfile
+                                        &&
+                                             this.state.showSuccessAdd
                                                 ? <div className={css.newsAlert}><p>Пост отправлен на модерацию</p></div>
                                                 : null
                                 }
