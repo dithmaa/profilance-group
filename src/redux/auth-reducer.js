@@ -8,14 +8,14 @@ let initialState = {
     users: [
         {
             id: 1,
-            login: "pavel",
-            password: "105673azy",
+            login: "slavik",
+            password: "incrediblesamurai",
             order: "user"
         },
         {
             id: 2,
-            login: "alex",
-            password: "softbox2002TapeApple",
+            login: "maxwell",
+            password: "invinsiblecoding",
             order: "admin"
         }
     ],
@@ -51,8 +51,11 @@ const authReducer = (state = initialState, action) => {
 
             if(loginCheck && passwordCheck){ // проверка на авторизацию
                 // console.log("Авторизация произошла успешно");
-                localStorage.setItem('authData', JSON.stringify(action.payload));
-                localStorage.setItem('isAuth', JSON.stringify({isAuth: true}));
+                let getAuthData = state.users.filter(item=> item.login.includes(action.payload.login))[0]; // получить польз-ля на основе полученных данных
+                // localStorage.setItem('authData', JSON.stringify(action.payload)); // только пароль и логин
+                localStorage.setItem('authData', JSON.stringify(getAuthData)); // пар, лог, и статус админа в кэш
+                localStorage.setItem('isAuth', JSON.stringify({isAuth: true})); // явлется ли зарег-м на данный момент в кэш
+
                 
                 return{
                     ...state, 

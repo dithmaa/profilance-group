@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Header from "../Header/Header";
+import HeaderContainer from "../Header/HeaderContainer";
 import Home from "../Home/Home";
 import LoginPopup from "../LoginPopup/LoginPopup";
 import NewsContainer from "../News/NewsContainer";
@@ -15,17 +15,19 @@ class General extends React.Component {
         
 
         let userLogin = this.props.userLogin;
+        let isAdminProfile = this.props.isAdminProfile;
 
         return (
             <div className={css.general}>
 
 
-                <Header
+                <HeaderContainer
                     showLoginPopup={this.props.showLoginPopup}
                     accountLogout={this.props.accountLogout}
 
                     isAuth={this.props.isAuth}
                     userLogin={userLogin}
+                    isAdminProfile={isAdminProfile}
                 />
 
 
@@ -37,7 +39,10 @@ class General extends React.Component {
                     />}/>
                     <Route path="news/" element={
 
-                        <NewsContainer isAuth={this.props.isAuth}/>
+                        <NewsContainer 
+                        isAdminProfile={this.props.isAdminProfile}
+                        
+                        isAuth={this.props.isAuth}/>
                     
                     } />
                     

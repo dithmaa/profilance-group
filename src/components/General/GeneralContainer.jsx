@@ -19,6 +19,15 @@ class GeneralContainer extends React.Component {
             ? userLogin = JSON.parse(localStorage.getItem('authData')).login 
             : userLogin = ""
 
+        // Проверка на аккаунт администратора
+        let isAdminProfile; 
+            JSON.parse(localStorage.getItem('authData'))
+            ? JSON.parse(localStorage.getItem('authData')).order === "admin"
+                ? isAdminProfile = true
+                : isAdminProfile = false
+            : isAdminProfile = false
+
+
         return(
             <General 
                 // Функции
@@ -34,6 +43,11 @@ class GeneralContainer extends React.Component {
                 
                 // Логин пользователя
                 userLogin={userLogin}
+
+                // Проверка на админа
+                isAdminProfile={isAdminProfile}
+                
+
 
             />
         )

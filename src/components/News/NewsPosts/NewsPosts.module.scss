@@ -15,7 +15,29 @@
         font-size: 12px;
         color: rgb(80, 80, 80);
     }
+    &Agree{
+        font-size: 12px;
+        &Btn{
+            background-color: rgb(65, 201, 65);
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.25s ease all;
+            &:hover{
+                opacity: 0.4;
+            }
+        }
+    }
+    &IsAgree {
+        color: green;
+    }
+    &IsNotAgree{
+        color: red;
+    }
 }
+
 @media (max-width: 992px){
     .newsPost {
         max-width: 100%;

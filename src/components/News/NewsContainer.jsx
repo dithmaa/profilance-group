@@ -3,14 +3,20 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Navigate } from "react-router-dom";
-import { addNewsPost, handleSearchValue, searchNews } from "../../redux/news-reducer";
+import { addNewsPost, agreePost, handleSearchValue, hideSearch, searchNews, showSearch } from "../../redux/news-reducer";
 import News from "./News";
 import NewsPosts from "./NewsPosts/NewsPosts";
 
 class NewsContainer extends React.Component {
+    constructor(props){
+        super(props);
+    }
+
+
+
     render(){
         if(!this.props.isAuth) return <Navigate to={"/"}/> // если не зарег-н, направь на главную стр-цу
-        let newsPostsElement = this.props.newsPosts.reverse().map( (item) => {
+        let newsPostsElement = this.props.newsPosts.map( (item, pos) => {
             // разбил дату на переменные для удобства
             
             let month;
@@ -65,7 +71,19 @@ class NewsContainer extends React.Component {
             if(minutes  < 10){
                 minutes = '0' + minutes // чтобы добавлялся 0 перед цифрой
             } 
+            
+            if(this.props.isAdminProfile){
+                item.isShowNow = true; // Показывай посты если админ. Админу видно всё. 
+            } else { 
+                item.isShowNow = false // Скрывай посты, если не админ.
+            }
+            // console.log('test isAgree =>', item.isAgree);
+            // console.log('test isShowNow =>', item.isShowNow);
+            if( !item.isAgree && !item.isShowNow ) {return null} // Показывай только одобренные
 
+            
+
+            
 
             return <NewsPosts 
                 key={item.id}
@@ -76,6 +94,10 @@ class NewsContainer extends React.Component {
                 title={item.title}
                 text={item.text}
                 day={day}
+                isAgree={item.isAgree}
+                isShowNow={item.isShowNow}
+                agreePost={this.props.agreePost}
+                pos={pos}
             />
         });
         return(
@@ -86,6 +108,9 @@ class NewsContainer extends React.Component {
             
             handleSearchValue={this.props.handleSearchValue}
             searchNews={this.props.searchNews}
+            showSearch={this.props.showSearch}
+            hideSearch={this.props.hideSearch}
+            showSearchAlert={this.props.showSearchAlert}
             />
         )
     }
@@ -94,8 +119,10 @@ class NewsContainer extends React.Component {
 const mapStateToProps = (state) => {
     return{ 
         newsPosts: state.newsPage.newsPosts,
-        searchValue: state.newsPage.searchValue
+        searchValue: state.newsPage.searchValue,
+        showSearchAlert: state.newsPage.showSearchAlert
     }
 }
 
-export default connect(mapStateToProps, {addNewsPost, handleSearchValue, searchNews})(NewsContainer);
+export default connect(mapStateToProps, {addNewsPost, handleSearchValue, 
+    searchNews, showSearch, hideSearch, agreePost})(NewsContainer);

@@ -18,22 +18,71 @@
 }
 
 .topNavLogin{
-    margin-right: 30px;
+    margin-right: 40px;
 }
 .topNavButton{
     // padding-top: 14px;
     // padding-bottom: 14px;
 }
 .logo{
-    margin-right: 30px;
+    margin-right: 40px;
 }
+
+.search{
+    width: 100%;
+    margin: 0 20px;
+    &Icon{
+        width: 16px;
+        height: 16px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-left: 20px;
+        img{
+            width: 100%;
+        }
+    }
+    &Input {
+        width: 100%;
+        opacity: 1;
+        padding-left: 50px;
+        margin: 0;
+    }
+    &Line {
+        position: relative;
+        display: flex;
+        
+    }
+}
+
 @media (max-width: 768px){
     .topNav{
         flex-direction: column;
+        .logo{
+            width: 240px;
+            img{
+                width: 100%;
+            }
+        }
+        .search{
+            order: 2
+        }
+        .topNavRight{
+            margin: 10px 0;
+        }
     }
+    
 }
 @media (max-width: 596px){
-    .topNavLeft{
-        flex-direction: column;
+
+    .topNav {
+        &Left{
+            flex-direction: column;
+        }
+
+        &Links {
+            padding: 10px 0;
+        }
     }
 }
+

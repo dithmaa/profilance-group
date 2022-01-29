@@ -3,7 +3,17 @@ import css from './Header.module.scss';
 import logo from '../../assets/images/logo.svg';
 import { Link } from 'react-router-dom';
 
+import searchIcon from '../../assets/icons/search-icon.png';
+
 class Header extends React.Component {
+    constructor(props){
+        super(props)
+    }
+    handleSearchInput = (e) => {
+        let inputValue = e.target.value;
+        this.props.handleSearchValue(inputValue);
+        this.props.searchNews(inputValue);
+    }
     render() {
         return (
             <>
@@ -23,6 +33,29 @@ class Header extends React.Component {
 
                             }
                         </div>
+                        {/* Поиск только по новостям */}
+                        {
+                            this.props.isAuth && this.props.isShowSearch
+                            &&
+                                <div className={css.search}>
+
+                                <div className={css.searchLine}>
+                                    <div className={css.searchIcon}>
+                                        <img src={searchIcon} alt="" />
+                                    </div>
+                                    <input type="text"
+                                        value={this.props.searchValue}
+                                        className={css.searchInput + ' mainInput'}
+                                        onChange={this.handleSearchInput}
+                                        placeholder={"Например: React"}
+                                    />
+                                </div>
+                            </div>
+                            
+
+                        }
+                        
+
                         <div className={css.topNavRight + ' flex aic'} >
 
                             <div className={css.topNavAuth}>
@@ -32,6 +65,11 @@ class Header extends React.Component {
                                             <span className={css.topNavLogin}>
                                                 {
                                                     this.props.userLogin
+                                                }
+                                                {
+                                                    this.props.isAdminProfile
+                                                    ? <span style={{"color": "#4a7eb9"}}> (admin)</span>
+                                                    : null
                                                 }
                                             </span>
                                             <button className='mainButton' onClick={this.props.accountLogout}>Выйти</button>
