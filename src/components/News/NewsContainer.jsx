@@ -111,6 +111,11 @@ class NewsContainer extends React.Component {
             showSearch={this.props.showSearch}
             hideSearch={this.props.hideSearch}
             showSearchAlert={this.props.showSearchAlert}
+            showSuccessAdd={this.props.showSuccessAdd}
+            
+            isAdminProfile={this.props.isAdminProfile}
+            agreePost={this.props.agreePost}
+            newsPost={this.props.newsPosts}
             />
         )
     }
@@ -120,7 +125,8 @@ const mapStateToProps = (state) => {
     return{ 
         newsPosts: state.newsPage.newsPosts,
         searchValue: state.newsPage.searchValue,
-        showSearchAlert: state.newsPage.showSearchAlert
+        showSearchAlert: state.newsPage.showSearchAlert,
+        showSuccessAdd: state.newsPage.showSuccessAdd
     }
 }
 

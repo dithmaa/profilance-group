@@ -16,7 +16,7 @@ JSON.parse(localStorage.getItem('newsPosts'))  // если есть в Local Sto
             title: 'Пост 2. Что такое Axios',
             text: 'Axios — это широко известная JavaScript-библиотека. Она представляет собой HTTP-клиент, основанный на промисах и предназначенный для браузеров и для Node. js.',
             postDate: [27, 0, 15, 30],
-            isAgree: false,
+            isAgree: true,
             isShowNow: false
         },
         {
@@ -24,7 +24,7 @@ JSON.parse(localStorage.getItem('newsPosts'))  // если есть в Local Sto
             title: 'Пост 3. Почему нужно учить Хуки в 2022 году?',
             text: 'Хуки позволяют повторно использовать логику состояния без изменения иерархии компонентов. Это облегчает обмен ссылками между многими компонентами или всей системы в целом. ... Хуки позволяют делать тоже самое разбивая логику между компонентами на маленькие функции и использовать их внутри компонентов.',
             postDate: [27, 0, 15, 30],
-            isAgree: false,
+            isAgree: true,
             isShowNow: false
         },
         {
@@ -66,6 +66,7 @@ let initialState = {
 const newsReducer = (state = initialState, action) => {
     switch (action.type) {
         case ADD_NEWS_POST: {
+            
             // получение даты
             let dateDay = new Date().getDate();
             let dateMonth = new Date().getMonth();

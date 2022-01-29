@@ -30,7 +30,7 @@ class General extends React.Component {
                     isAdminProfile={isAdminProfile}
                 />
 
-
+                {/* Новости и главная */}
                 <Routes>
                     <Route path="/" element={
                         <Home isAuth={this.props.isAuth} 
