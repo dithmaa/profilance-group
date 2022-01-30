@@ -19,10 +19,12 @@
 
 ### • Аккаунт Администратора:
 Логин: maxwell
+
 Пароль: invinsiblecoding
 
 ### • Аккаунт обычного пользователя:
-### Логин: slavik
-### Пароль: incrediblesamurai
+Логин: slavik
+
+Пароль: incrediblesamurai
 
 
