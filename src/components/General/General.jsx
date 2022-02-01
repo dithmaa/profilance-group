@@ -1,14 +1,18 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import { withRouter } from "../../hoc/withRouter";
 import HeaderContainer from "../Header/HeaderContainer";
 import Home from "../Home/Home";
 import LoginPopup from "../LoginPopup/LoginPopup";
 import NewsContainer from "../News/NewsContainer";
+import NewsPostPage from "../News/NewsPostPage/NewsPostPage";
 import css from "./General.module.scss";
 
 class General extends React.Component {
 
-    
+    constructor(props){
+        super(props)
+    }
     
     render() {
 
@@ -45,6 +49,7 @@ class General extends React.Component {
                         isAuth={this.props.isAuth}/>
                     
                     } />
+                    <Route path="news/post/:postId" element={<NewsPostPage/>}/>
                     
                 </Routes>
                 {

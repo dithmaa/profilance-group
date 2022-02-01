@@ -1,13 +1,20 @@
 
 import React from 'react';
-import css from './NewsPosts.module.scss';
-class NewsPosts extends React.Component {
+import { Link, NavLink } from 'react-router-dom';
+import css from './NewsPostItem.module.scss';
+class NewsPostItem extends React.Component {
+    constructor(props){
+        super(props)
+    }
     agreePost = (postPos) => {
         this.props.agreePost(postPos);
     }
-    render(){
+    render() {
         return (
-            <div className={css.newsPost} key={this.props.id}>
+
+
+            <Link to={"post/" + this.props.id} className={css.newsPost}>
+
                 {
                     // Показывать настройки одобрения только администратору
                 }
@@ -20,18 +27,18 @@ class NewsPosts extends React.Component {
                                 : <span className={css.newsPostIsNotAgree}>Не одобрен</span>
                         }
                         {
-                            !this.props.isAgree 
-                                ? <button className={css.newsPostAgreeBtn} 
-                                    onClick={()=>this.agreePost(this.props.pos)}>
+                            !this.props.isAgree
+                                ? <button className={css.newsPostAgreeBtn}
+                                    onClick={() => this.agreePost(this.props.pos)}>
                                     Одобрить
                                 </button>
                                 : null
                         }
                     </div>
                 }
-    
+
                 <span className={css.newsPostDate}>
-    
+
                     {
                         this.props.postDate.length !== 0
                             ?
@@ -42,10 +49,15 @@ class NewsPosts extends React.Component {
                 </span>
                 <h3 className={css.newsPostTitle}>{this.props.title}</h3>
                 <p className={css.newsPostText}>{this.props.text}</p>
-    
-    
-            </div>
+
+
+
+            </Link>
+
+
+
+
         )
     }
 }
-export default NewsPosts;
+export default NewsPostItem;
