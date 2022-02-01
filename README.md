@@ -27,4 +27,5 @@
 
 Пароль: incrediblesamurai
 
+В этом проекте был использован: React JS, Redux, JavaScript, BrowserRouter
 
