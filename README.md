@@ -17,4 +17,15 @@
 Эта команда запустит приложение в режиме разработки\
 Откройте [http://localhost:3000](http://localhost:3000) чтобы увидеть в своём браузере
 
+### • Аккаунт Администратора:
+Логин: maxwell
+
+Пароль: invinsiblecoding
+
+### • Аккаунт обычного пользователя:
+Логин: slavik
+
+Пароль: incrediblesamurai
+
+В этом проекте был использован: React JS, Redux, JavaScript, BrowserRouter
 
