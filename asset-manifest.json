@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/profilance-group/static/css/main.ef01ff60.css",
-    "main.js": "/profilance-group/static/js/main.ee7e0daa.js",
+    "main.css": "/profilance-group/static/css/main.1e78e667.css",
+    "main.js": "/profilance-group/static/js/main.368a0e90.js",
     "static/js/787.4e7ef02d.chunk.js": "/profilance-group/static/js/787.4e7ef02d.chunk.js",
     "static/media/logo.svg": "/profilance-group/static/media/logo.30c2329ae7bda22d4695085750d37502.svg",
     "index.html": "/profilance-group/index.html",
-    "main.ef01ff60.css.map": "/profilance-group/static/css/main.ef01ff60.css.map",
-    "main.ee7e0daa.js.map": "/profilance-group/static/js/main.ee7e0daa.js.map",
+    "main.1e78e667.css.map": "/profilance-group/static/css/main.1e78e667.css.map",
+    "main.368a0e90.js.map": "/profilance-group/static/js/main.368a0e90.js.map",
     "787.4e7ef02d.chunk.js.map": "/profilance-group/static/js/787.4e7ef02d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ef01ff60.css",
-    "static/js/main.ee7e0daa.js"
+    "static/css/main.1e78e667.css",
+    "static/js/main.368a0e90.js"
   ]
 }
