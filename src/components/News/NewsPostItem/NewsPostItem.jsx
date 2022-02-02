@@ -9,8 +9,20 @@ class NewsPostItem extends React.Component {
     agreePost = (postPos) => {
         this.props.agreePost(postPos);
     }
+
     render() {
+        
+        let newsPostText = this.props.text
+
+        {
+            if(newsPostText.length >= 300){
+                newsPostText = newsPostText.substr(0,300) + ' ...'
+            }
+        }
+
         return (
+
+        
 
 
             <Link to={"post/" + this.props.id} className={css.newsPost}>
@@ -48,7 +60,12 @@ class NewsPostItem extends React.Component {
                     }
                 </span>
                 <h3 className={css.newsPostTitle}>{this.props.title}</h3>
-                <p className={css.newsPostText}>{this.props.text}</p>
+                <p className={css.newsPostText}>
+                    
+                    {
+                        newsPostText
+                    }
+                </p>
 
 
 
