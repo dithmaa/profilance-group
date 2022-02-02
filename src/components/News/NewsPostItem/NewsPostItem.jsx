@@ -10,11 +10,15 @@ class NewsPostItem extends React.Component {
         this.props.agreePost(postPos);
     }
     removePost =(postPos) => {
-        this.props.removePost(postPos)
+        this.props.removePost(postPos);
     }
+    editPost = (postPos) => {
+        this.props.editPost(postPos);
+    }
+
     
     state = { 
-        isShowMoreWindow: true
+        isShowMoreWindow: false
     }
     toggleShowMoreWindow = () => {
         this.setState((state)=>{
@@ -39,9 +43,8 @@ class NewsPostItem extends React.Component {
             <div className={css.newsPost}>
                 {
                     this.state.isShowMoreWindow 
-                    && <div className={css.newsPostMore} onClick={(e)=>e.preventDefault()} >
+                    && <div className={css.newsPostMore} onMouseLeave={this.toggleShowMoreWindow} onClick={(e)=>e.preventDefault()} >
                         <button onClick={(postPos)=>this.removePost(this.props.pos)}>Удалить пост</button>
-                        <button>Редактировать пост</button>
                     </div>
                 }
                 

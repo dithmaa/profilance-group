@@ -8,25 +8,38 @@
     &ShowMore {
         position: relative;
         z-index: 99;
+        background-color: #fff;
+        border-radius: 100px;
+        border: none;
+        padding: 10px;
+        width: 34px;
+        height: 34px;
+        cursor: pointer;
+        transition: 0.25s ease all;
+        &:hover{
+            opacity: 0.6;
+        }
     }
     &More{
-        background-color: rgb(205, 221, 218);
+        background-color: #d1daea;
         right: 0;
         top: 0;
-        margin-top: 20px;
-        margin-right: 20px;
-        width: 200px;
+        margin-top: 8px;
+        margin-right: 10px;
+        width: 180px;
         position: absolute;
         border-radius: 6px;
         padding: 10px;
         
         button {
             border: none;
-            background-color: #fff;
+            background-color: rgb(255, 255, 255);
             padding: 6px;
             margin: 2px;
             transition: 0.25s ease all;
             cursor: pointer;
+            padding: 10px 18px;
+            border-radius: 10px;
             &:hover{
                 opacity: 0.6;
             }

@@ -116,6 +116,14 @@ const newsReducer = (state = initialState, action) => {
                 newsPosts: temp
             }
         }
+        // case EDIT_POST: {
+        //     const temp = [...state.newsPosts];
+        //     temp[action.postPos].text = action.newTextBody;
+        //     return {
+        //         ...state,
+        //         newsPosts: temp
+        //     }
+        // }
 
 
 
@@ -180,6 +188,7 @@ const SHOW_SEARCH = "SHOW_SEARCH";
 const HIDE_SEARCH = "HIDE_SEARCH";
 const AGREE_POST = "AGREE_POST";
 const REMOVE_POST = "REMOVE_POST";
+const EDIT_POST = "EDIT_POST";
 
 
 export let addNewsPost = (postTitle, postText) => ({type: ADD_NEWS_POST, 
@@ -190,6 +199,7 @@ export let showSearch = () => ({type: SHOW_SEARCH});
 export let hideSearch = () => ({type: HIDE_SEARCH}); 
 export let agreePost = (postPos) => ({type: AGREE_POST, postPos}); // Только для администратора
 export let removePost = (postPos) => ({type: REMOVE_POST, postPos}); // Только для администратора
+export let editPost = (postPos) => ({type: EDIT_POST, postPos}); // Только для администратора
 
 
 export default newsReducer;

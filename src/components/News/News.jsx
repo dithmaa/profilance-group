@@ -110,6 +110,7 @@ class News extends React.Component {
                 pos={pos}
                 id={item.id}
                 removePost={this.props.removePost}
+                editPost={this.props.editPost}
             />
         });
         const validationSchema = yup.object().shape({
