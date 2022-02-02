@@ -95,6 +95,31 @@ const newsReducer = (state = initialState, action) => {
                 newsPosts: temp
             }
         }
+        case AGREE_POST: {
+            const temp = [...state.newsPosts];
+            temp[action.postPos].isAgree = true; 
+            console.log('Успешно засеталось');
+            localStorage.setItem('newsPosts', JSON.stringify(temp));
+            return{
+                ...state,
+                newsPosts: temp
+
+            }
+        }
+
+        case REMOVE_POST: {
+            console.log(action.postPos);
+            const temp = [...state.newsPosts];
+            temp.splice(action.postPos, 1);
+            return{
+                ...state,
+                newsPosts: temp
+            }
+        }
+
+
+
+
         case HANDLE_SEARCH_VALUE:{
             return{
                 ...state, 
@@ -127,6 +152,7 @@ const newsReducer = (state = initialState, action) => {
             }
         }
 
+
         case SHOW_SEARCH: {
             return{
                 ...state,
@@ -139,17 +165,7 @@ const newsReducer = (state = initialState, action) => {
                 isShowSearch: false
             }
         }
-        case AGREE_POST: {
-            const temp = [...state.newsPosts];
-            temp[action.postPos].isAgree = true; 
-            console.log('Успешно засеталось');
-            localStorage.setItem('newsPosts', JSON.stringify(temp));
-            return{
-                ...state,
-                newsPosts: temp
-
-            }
-        }
+        
 
         default:
             return state;
@@ -163,6 +179,7 @@ const SEARCH_NEWS = "SEARCH_NEWS";
 const SHOW_SEARCH = "SHOW_SEARCH";
 const HIDE_SEARCH = "HIDE_SEARCH";
 const AGREE_POST = "AGREE_POST";
+const REMOVE_POST = "REMOVE_POST";
 
 
 export let addNewsPost = (postTitle, postText) => ({type: ADD_NEWS_POST, 
@@ -172,6 +189,7 @@ export let searchNews = (searchNewsBody) => ({type: SEARCH_NEWS, searchNewsBody}
 export let showSearch = () => ({type: SHOW_SEARCH}); 
 export let hideSearch = () => ({type: HIDE_SEARCH}); 
 export let agreePost = (postPos) => ({type: AGREE_POST, postPos}); // Только для администратора
+export let removePost = (postPos) => ({type: REMOVE_POST, postPos}); // Только для администратора
 
 
 export default newsReducer;

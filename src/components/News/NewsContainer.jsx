@@ -3,7 +3,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Navigate } from "react-router-dom";
-import { addNewsPost, agreePost, handleSearchValue, hideSearch, searchNews, showSearch } from "../../redux/news-reducer";
+import { addNewsPost, agreePost, handleSearchValue, hideSearch, removePost, searchNews, showSearch } from "../../redux/news-reducer";
 import News from "./News";
 
 class NewsContainer extends React.Component {
@@ -24,6 +24,7 @@ class NewsContainer extends React.Component {
             // posts
             addNewsPost={this.props.addNewsPost}
             agreePost={this.props.agreePost}
+            removePost={this.props.removePost}
             //search
             searchValue={this.props.searchValue} 
             handleSearchValue={this.props.handleSearchValue}
@@ -52,4 +53,4 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps, {addNewsPost, handleSearchValue, 
-    searchNews, showSearch, hideSearch, agreePost})(NewsContainer);
+    searchNews, showSearch, hideSearch, agreePost, removePost})(NewsContainer);

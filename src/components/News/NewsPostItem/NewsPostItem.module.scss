@@ -2,8 +2,36 @@
     background-color: #fff7f7;
     // padding: 20px;
     margin: 20px 0;
-    max-width: 45%;
+    max-width: 49%;
     width: 100%;
+    position: relative;
+    &ShowMore {
+        position: relative;
+        z-index: 99;
+    }
+    &More{
+        background-color: rgb(205, 221, 218);
+        right: 0;
+        top: 0;
+        margin-top: 20px;
+        margin-right: 20px;
+        width: 200px;
+        position: absolute;
+        border-radius: 6px;
+        padding: 10px;
+        
+        button {
+            border: none;
+            background-color: #fff;
+            padding: 6px;
+            margin: 2px;
+            transition: 0.25s ease all;
+            cursor: pointer;
+            &:hover{
+                opacity: 0.6;
+            }
+        }
+    }
     &Content{
         display: block;
         padding: 20px;

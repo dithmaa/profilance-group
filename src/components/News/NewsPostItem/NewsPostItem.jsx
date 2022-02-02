@@ -6,10 +6,23 @@ class NewsPostItem extends React.Component {
     constructor(props){
         super(props)
     }
-    agreePost = (postPos, e) => {
+    agreePost = (postPos) => {
         this.props.agreePost(postPos);
     }
-
+    removePost =(postPos) => {
+        this.props.removePost(postPos)
+    }
+    
+    state = { 
+        isShowMoreWindow: true
+    }
+    toggleShowMoreWindow = () => {
+        this.setState((state)=>{
+            return {
+                isShowMoreWindow: !state.isShowMoreWindow
+            }
+        })
+    }
     render() {
         
         let newsPostText = this.props.text
@@ -22,11 +35,16 @@ class NewsPostItem extends React.Component {
 
         return (
 
-        
-
-            /*"post/" + this.props.id*/
 
             <div className={css.newsPost}>
+                {
+                    this.state.isShowMoreWindow 
+                    && <div className={css.newsPostMore} onClick={(e)=>e.preventDefault()} >
+                        <button onClick={(postPos)=>this.removePost(this.props.pos)}>Удалить пост</button>
+                        <button>Редактировать пост</button>
+                    </div>
+                }
+                
 
                 {
                     // Показывать настройки одобрения только администратору
@@ -41,11 +59,17 @@ class NewsPostItem extends React.Component {
                         }
                         {
                             !this.props.isAgree
-                                ? <button className={css.newsPostAgreeBtn}
-                                    onClick={() => this.agreePost(this.props.pos)}>
-                                    Одобрить
-                                </button>
-                                : null
+                                ? <div>
+                                    <button className={css.newsPostAgreeBtn}
+                                        onClick={() => this.agreePost(this.props.pos)}>
+                                        Одобрить
+                                    </button>
+                                    <button className={css.newsPostShowMore} onClick={this.toggleShowMoreWindow}>⁝</button>
+                                </div>
+
+                                : <div><button className={css.newsPostShowMore}
+                                onClick={this.toggleShowMoreWindow}
+                                >⁝</button></div>
                         }
                     </div>
                 }
