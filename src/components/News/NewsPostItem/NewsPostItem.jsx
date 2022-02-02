@@ -6,7 +6,7 @@ class NewsPostItem extends React.Component {
     constructor(props){
         super(props)
     }
-    agreePost = (postPos) => {
+    agreePost = (postPos, e) => {
         this.props.agreePost(postPos);
     }
 
@@ -24,8 +24,9 @@ class NewsPostItem extends React.Component {
 
         
 
+            /*"post/" + this.props.id*/
 
-            <Link to={"post/" + this.props.id} className={css.newsPost}>
+            <div className={css.newsPost}>
 
                 {
                     // Показывать настройки одобрения только администратору
@@ -49,7 +50,10 @@ class NewsPostItem extends React.Component {
                     </div>
                 }
 
-                <span className={css.newsPostDate}>
+                <Link to={"post/" + this.props.id} className={css.newsPostContent}
+                style={ this.props.isShowNow ? {"paddingTop": "0px"} : {"paddingTop": "20px"}}
+                >
+                    <span className={css.newsPostDate}>
 
                     {
                         this.props.postDate.length !== 0
@@ -66,10 +70,11 @@ class NewsPostItem extends React.Component {
                         newsPostText
                     }
                 </p>
+                </Link>
 
 
 
-            </Link>
+            </div>
 
 
 

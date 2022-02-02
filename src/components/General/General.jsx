@@ -45,7 +45,6 @@ class General extends React.Component {
 
                         <NewsContainer 
                         isAdminProfile={this.props.isAdminProfile}
-                        
                         isAuth={this.props.isAuth}/>
                     
                     } />

@@ -1,9 +1,23 @@
 .newsPost{
     background-color: #fff7f7;
-    padding: 20px;
+    // padding: 20px;
     margin: 20px 0;
     max-width: 45%;
     width: 100%;
+    &Content{
+        display: block;
+        padding: 20px;
+        padding-top: 0;
+        transition: .25s ease all;
+        &:hover{
+            opacity: 0.6;
+        }
+    }
+    &Agree{
+        padding: 20px;
+        padding-bottom: 0;
+        align-items: center;
+    }
     .newsPostTitle{
         font-size: 20px;
         margin: 10px 0;
