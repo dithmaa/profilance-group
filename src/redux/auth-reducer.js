@@ -9,13 +9,13 @@ let initialState = {
         {
             id: 1,
             login: "slavik",
-            password: "incrediblesamurai",
+            password: "пароль123",
             order: "user"
         },
         {
             id: 2,
             login: "maxwell",
-            password: "invinsiblecoding",
+            password: "пароль123",
             order: "admin"
         }
     ],

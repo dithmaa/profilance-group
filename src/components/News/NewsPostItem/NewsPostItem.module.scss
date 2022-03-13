@@ -1,5 +1,6 @@
 .newsPost{
-    background-color: #fff7f7;
+    background-color: #ffffff;
+    box-shadow: 0 0 30px rgba(179, 179, 179, 0.1);
     // padding: 20px;
     margin: 20px 0;
     max-width: 49%;
@@ -80,6 +81,7 @@
             border-radius: 10px;
             cursor: pointer;
             transition: 0.25s ease all;
+            margin-right: 20px;
             &:hover{
                 opacity: 0.4;
             }

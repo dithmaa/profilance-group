@@ -141,7 +141,7 @@ const newsReducer = (state = initialState, action) => {
             let showSearchAlert = false;
 
             let wasAgreed = state.originalNewsPosts
-            .filter(post => post.isAgree === true);
+            .filter(post => post.isAgree === true); // только одобренные
 
             let newsPostsSearched = wasAgreed
             .filter(post => post.title.toLowerCase().includes(action.searchNewsBody.toLowerCase()));
